@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="quiz portal">
+    <title>Features - Brand</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/simple-line-icons.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/untitled.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="index.html" style="color:#d460d6;font-weight:bold;font-style:normal;font-family:Akronim, cursive;letter-spacing:5px;line-height:46px;font-size:40px;">QCorp</a><button class="navbar-toggler" data-toggle="collapse"
+                data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1" style="font-size:18px;">
+                <ul class="nav navbar-nav ml-auto" style="font-size:25px;">
+                    <li class="nav-item" role="presentation" style="font-size:27px;"><a class="nav-link" href="index.html" style="font-size:17px;">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="features.html" style="font-size:17px;">Features</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html" style="font-size:17px;">About Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html" style="font-size:17px;">Contact Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html" style="background-color:#f9f9f9;font-size:17px;">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html" style="font-size:17px;background-color:#00e0ff;color:rgba(20,0,255,0.5);">Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Features</h2>
+                    <p>Various categories and levels are available to test your knowledge, we provide login and registration feature, so that your progress is saved in your account.&nbsp;</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Bootstrap 4</h4>
+                        <p>The entire website is designed in bootstrap 4. which provides easy to use interface and great design. Backend is designed with Python flask.</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                        <h4>Progress Data</h4>
+                        <p>Register and create your own account, Login to website on complete registration and start practicing, We will get your Progress saved to our servers.</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Responsive</h4>
+                        <p>Responsive design with great content, makes it exciting to use and get committed to quiz .</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                        <h4>All Browser Compatibility</h4>
+                        <p>Website is designed by keeping in mind various browsers in market. Any latest browser should be able to load website without any difficulties. Start working in Smartphone, if you dont have a laptop or PC.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="registration.html">Sign up</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="contact-us.html">Contact us</a></li>
+                        <li><a href="about-us.html">Reviews</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2020 Copyright&nbsp;</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bs-animation.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+</body>
+
+</html>

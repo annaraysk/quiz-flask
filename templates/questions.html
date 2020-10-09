@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="quiz portal">
+    <title>Quiz Annaray</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/simple-line-icons.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/untitled.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#" style="color:#d460d6;font-weight:bold;font-style:normal;font-family:Akronim, cursive;letter-spacing:5px;line-height:46px;font-size:40px;">QCorp</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="font-size:18px;">
+                <ul class="nav navbar-nav ml-auto" style="font-size:25px;">
+                    <li class="nav-item" role="presentation"><a class="nav-link text-monospace text-white bg-danger" href="#" style="font-size:17px;background-color:#00e0ff;color:rgba(20,0,255,0.5);">END TEST</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-left" style="margin-left:19px;">01. Which of the following is True ?</h2>
+                    <div>
+                        <div class="col"><div class="row">
+<label for="q1">
+   <input style="margin-left: 33px;" id="o1q1" type="radio" name="q1" value="o1q1">
+   <i style="margin-left: 13px; font-size: 20px;">option1</i>
+</label>
+</div><div class="row">
+<label for="q1">
+   <input style="margin-left: 33px;" id="o2q1" type="radio" name="q1" value="o2q1">
+   <i style="margin-left: 13px; font-size: 20px;">option2</i>
+</label>
+</div><div class="row">
+<label for="q1">
+   <input style="margin-left: 33px;" id="o3q1" type="radio" name="q1" value="o3q1">
+   <i style="margin-left: 13px; font-size: 20px;">option3</i>
+</label>
+</div><div class="row">
+<label for="q1">
+   <input style="margin-left: 33px;" id="o4q1" type="radio" name="q1" value="o4q1">
+   <i style="margin-left: 13px; font-size: 20px;">option4</i>
+</label>
+</div>
+<div class="row">
+    <a style="margin-left: 23px;" href="#" id="clear1">Clear selection</a>
+</div>
+<script type="text/javascript">
+    document.getElementById('clear1').addEventListener('click', function () {
+      ["o1q1", "o2q1", "o3q1","o4q1"].forEach(function(id) {
+        document.getElementById(id).checked = false;
+      });
+      return false;
+    })
+  </script></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="registration.html">Sign up</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="contact-us.html">Contact us</a></li>
+                        <li><a href="about-us.html">Reviews</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2020 Copyright&nbsp;</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bs-animation.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+</body>
+
+</html>
