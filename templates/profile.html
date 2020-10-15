@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="quiz portal">
-    <title>Register - Brand</title>
+    <title>Profile - QCorp</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="{{ url_for('static', filename='fonts/simple-line-icons.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim">
@@ -35,36 +36,47 @@
             </div>
         </div>
     </nav>
-    <main class="page registration-page">
-        <section class="clean-block clean-form dark">
+    <main class="page">
+        <section class="clean-block about-us">
             <div class="container">
-                {% if msg=='success' %}
                 <div class="block-heading">
-                    <h2 class="text-success">Registration</h2>
-                    <p>Your registration was successfull. You can continue to login.</p>
+                    <h2 class="text-info">Profile</h2>
                 </div>
-                {% else %}
-                <div class="block-heading">
-                    {% if msg=='pdm' %}
-                    <h2 class="text-danger">Password Mismatch</h2>
-                    <p>It seems you entered different password in the fields. Check once again</p>
-                    {% elif msg=='ear' %}
-                    <h2 class="text-danger">Email already registered</h2>
-                    <p>It seems the email you entered is already taken. If you dont remember password, you can head out to Forgot password and reset your password.</p>
-                    {% elif msg=='sp' %}
-                    <h2 class="text-danger">Server Problem</h2>
-                    <p>We are facing some issues creating your account. Please try again later.</p>
-                    {% else %}
-                    <h2 class="text-info">Registration</h2>
-                    <p>Provide your details here. this email will be used to authenticate next time.</p>
-                    {% endif %}
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="static/img/def user.png">
+                            <div class="card-body info">
+                                <h3 class="card-title">{{ fname }}</h3>
+                                <p class="card-text" style="font-size:18px;">{{ email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div>
+                            <h3>Level :</h3>
+                            <p style="color:rgb(36,255,0);font-size:25px;font-family:Arbutus, cursive;">{{ level }}</p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ perc }}%;"><span class="sr-only">30%</span></div>
+                            </div>
+                            <p style="margin-top:16px;">For every questions you solve correct, your progress bar fills up. And level increases.</p>
+                        </div>
+                        <div style="margin-top:33px;">
+                            <h3>Total Questions Solved :</h3>
+                            <p style="font-size:24px;font-family:Arbutus, cursive;">{{ tqs }}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div style="margin-top:33px;">
+                            <h3>Total Questions Solved correct :</h3>
+                            <p style="color:rgb(36,255,0);font-size:24px;font-family:Arbutus, cursive;">{{ tqsc }}</p>
+                        </div>
+                        <div style="margin-top:33px;">
+                            <h3>Total Questions Solved wrong :</h3>
+                            <p style="color:rgb(255,15,0);font-size:24px;font-family:Arbutus, cursive;">{{ tqsw }}</p>
+                        </div>
+                    </div>
+                    <div class="col float-right justify-content-center align-items-center align-content-center align-self-center"><a class="btn btn-primary btn-lg float-right justify-content-center align-items-center align-content-center align-self-center" role="button" href="quiz.html" style="font-size:20px;">Continue practice</a></div>
                 </div>
-                <form action="/register" method="post">
-                    <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" required="" pattern="[A-Za-z ]+" id="name" name='fullName'></div>
-                    <div class="form-group"><label for="password">Password</label><input class="form-control item" type="password" required="" minlength="8" id="password" name="passw"></div>
-                    <div class="form-group"><label for="password">Confirm Password</label><input class="form-control item" type="password" required="" minlength="8" id="password" name="conpassw"></div>
-                    <div class="form-group"><label for="email">Email</label><input class="form-control item" type="text" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" name="email"></div><button class="btn btn-primary btn-block" type="submit">Sign Up</button></form>
-                {% endif %}
             </div>
         </section>
     </main>

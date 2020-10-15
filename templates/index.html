@@ -24,8 +24,13 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="features.html" style="font-size:17px;">Features</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html" style="font-size:17px;">About Us</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html" style="font-size:17px;">Contact Us</a></li>
+                    {% if loggedin==False %}
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.html" style="background-color:#f9f9f9;font-size:17px;">Login</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html" style="font-size:17px;background-color:#00e0ff;color:rgba(20,0,255,0.5);">Register</a></li>
+                    {% else %}
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="profile.html" style="background-color:#f9f9f9;font-size:17px;">Welcome, {{ user }}</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/logout" style="font-size:17px;background-color:#ff0000;color:rgba(255,255,255,0.5);">LOG OUT</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -33,8 +38,8 @@
     <main class="page landing-page">
         <section class="clean-block clean-hero" style="background-image:url(&quot;static/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
-                <h2 style="font-size:32px;">Easy quiz platform for Kids</h2>
-                <p>QCORP is a easy to use quiz platform for kids and students, Questions are updated regularly, so that, your kids experience questions that are in present trend and stay ahead of other students.</p>
+                <h2 style="font-size:32px;">Easy quiz platform for Students</h2>
+                <p>QCORP is a easy to use quiz platform for students, Questions are updated regularly, so that, you experience questions that are in present trend and stay ahead of other students.</p>
             </div>
         </section>
         <section class="clean-block clean-info dark">

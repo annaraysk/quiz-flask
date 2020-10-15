@@ -20,12 +20,17 @@
                 data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1" style="font-size:18px;">
                 <ul class="nav navbar-nav ml-auto" style="font-size:25px;">
-                    <li class="nav-item" role="presentation" style="font-size:27px;"><a class="nav-link" href="index.html" style="font-size:17px;">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="features.html" style="font-size:17px;">Features</a></li>
+                    <li class="nav-item" role="presentation" style="font-size:27px;"><a class="nav-link active" href="index.html" style="font-size:17px;">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="features.html" style="font-size:17px;">Features</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html" style="font-size:17px;">About Us</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html" style="font-size:17px;">Contact Us</a></li>
+                    {% if loggedin==False %}
                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.html" style="background-color:#f9f9f9;font-size:17px;">Login</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html" style="font-size:17px;background-color:#00e0ff;color:rgba(20,0,255,0.5);">Register</a></li>
+                    {% else %}
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="profile.html" style="background-color:#f9f9f9;font-size:17px;">Welcome, {{ user }}</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/logout" style="font-size:17px;background-color:#ff0000;color:rgba(255,255,255,0.5);">LOG OUT</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
