@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="quiz portal">
+    <title>Quiz Annaray</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/simple-line-icons.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Akronim">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/untitled.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#" style="color:#d460d6;font-weight:bold;font-style:normal;font-family:Akronim, cursive;letter-spacing:5px;line-height:46px;font-size:40px;">QCorp</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1" style="font-size:18px;">
+                <ul class="nav navbar-nav ml-auto" style="font-size:25px;">
+                    <li class="nav-item" role="presentation"><p>Score: {{score}}</p></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link text-monospace text-white" href="/doneWithTest" style="font-size:17px;background-color:#00e0ff;color:rgba(20,0,255,0.5); border-radius: 12px;">  DONE  </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="clean-block features">
+            {% for i in range(noq) %}
+            <div class="container">
+                <div class="block-heading">
+                    <h4 class="text-left" style="margin-left:19px;">{{i+1}}. {{ql[i][0]}}</h4>
+                    <div>
+                        <div class="col">
+                            {% for j in range(4) %}
+                            {% if ['a','b','c','d'][j]==answers[i] %}
+                            {% if answers[i]==ql[i][5].lower() %}
+                            <div class="row">
+                                <label for="o{{j}}q{{i}}">
+                                <input style="margin-left: 33px;" id="o{{j}}q{{i}}" checked type="radio" name="q{{i}}" value="{{['a','b','c','d'][j]}}">
+                                <i style="margin-left: 13px; font-size: 18px; background-color: lightgreen; border-radius: 7px;"> {{ql[i][j+1]+'   '}}   </i>
+                                </label>
+                            </div>
+                            {% else %}
+                            <div class="row">
+                                <label for="o{{j}}q{{i}}">
+                                <input style="margin-left: 33px;" id="o{{j}}q{{i}}" checked type="radio" name="q{{i}}" value="{{['a','b','c','d'][j]}}">
+                                <i style="margin-left: 13px; font-size: 18px; background-color: rgb(256,0,0,0.5); border-radius: 7px;"> {{ql[i][j+1]+'   '}}   </i>
+                                </label>
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            <div class="row" >
+                            <label for="o{{j}}q{{i}}">
+                            <input style="margin-left: 33px;" id="o{{j}}q{{i}}" type="radio" name="q{{i}}" value="{{['a','b','c','d'][j]}}">
+                            <i style="margin-left: 13px; font-size: 18px;"> {{ql[i][j+1]+'   '}}   </i>
+                            </label>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <div class='col'>
+                            <div class="row">
+                                <h5 class="text-left" style="margin-left: 22px;">Correct Answer: {{ql[i][5]}}</h5>
+                            </div>
+                            {% if ql[i][6]!='' %}
+                            <div class="row">
+                                <h5 class="text-left" style="margin-left: 22px;">Explanation: {{ql[i][6]}}</h5>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/theme.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/bs-animation.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+</body>
+
+</html>

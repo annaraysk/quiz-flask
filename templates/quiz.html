@@ -50,24 +50,24 @@
                             <div>
                                 <form action="/startquiz" method='post'>
                                     <div style="padding:11px;">
-                                        <select name='subject' id='sub' class="btn btn-primary btn-block">
-                                            <option value="Subject">Subject</option>
-                                            <option value="maths">Maths</option>
-                                            <option value="science">Science</option>
-                                            <option value="gk">G K</option>
+                                        <select name='subject' id='sub' class="btn btn-primary btn-block" required>
+                                            <option value="">Subject</option>
+                                            <option value="mat">Maths</option>
+                                            <option value="sci">Science</option>
+                                            <option value="ss">Social Science</option>
                                         </select>
                                     </div>
                                     <div style="padding:11px;">
-                                        <select name='diflevel' id='dif' class="btn btn-primary btn-block">
-                                            <option value="diflevel">Difficulty Level</option>
+                                        <select name='diflevel' id='dif' class="btn btn-primary btn-block" required>
+                                            <option value="">Difficulty Level</option>
                                             <option value="ez">Easy</option>
                                             <option value="med">Medium</option>
                                             <option value="hard">Hard</option>
                                         </select>
                                     </div>
                                     <div style="padding:11px;">
-                                        <select name='noofqstns' id='noofqstns' class="btn btn-primary btn-block">
-                                            <option value="noq">Number of questions</option>
+                                        <select name='noofqstns' id='noofqstns' class="btn btn-primary btn-block" required>
+                                            <option value="">Number of questions</option>
                                             <option value="10">10</option>
                                             <option value="20">20</option>
                                             <option value="30">30</option>

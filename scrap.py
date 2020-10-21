@@ -12,7 +12,7 @@ def updateDB(l):
     global count
     global con
     count+=1
-    c.execute('insert into scienceQst values(?,?,?,?,?,?,?);',l)
+    c.execute('insert into scienceQst(qstn,o1,o2,o3,o4,ans,exp) values(?,?,?,?,?,?,?);',l)
     con.commit()
 
 

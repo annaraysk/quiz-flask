@@ -6,6 +6,7 @@ import smtplib
 from werkzeug.utils import redirect
 from random import randint
 from datetime import datetime
+from random import randint
 
 app = Flask(__name__)
 
@@ -14,12 +15,15 @@ username = 'Guest'
 usergmail = ''
 l=[106, 117, 115, 116, 83, 111, 109, 101, 83, 105, 109, 112, 108, 101, 83, 104, 105, 116]
 ql=[]
+isSubmitted=True
 
 @app.route('/')
 @app.route('/index.html')
 def index():
     global isLoggedIn
     global username
+    global isSubmitted
+    isSubmitted=True
     return render_template("index.html", loggedin= isLoggedIn, user=username)
 
 @app.route('/login.html')
@@ -192,11 +196,67 @@ def resetAction():
     
 @app.route('/startquiz',methods=['POST'])
 def startquiz():
+    global isSubmitted
+    if isSubmitted==False:
+        return redirect(url_for('index'))
+    isSubmitted=False
     sub = request.form['subject']
     dif = request.form['diflevel']
     noq = request.form['noofqstns']
     global ql
-    
+    ql=[]
+    con = sqlite3.connect('creds.db')
+    c = con.cursor()
+    subdict={'mat':'mathsQst','ss':'ssQst','sci':'scienceQst'}
+    qdict={'mat':(2,41),'sci':(0,254),'ss':(0,219)}
+    l=[]
+    while(len(l)!=int(noq)):
+        t= randint(qdict[sub][0],qdict[sub][1])
+        if t not in l:
+            l.append(t)
+    for i in l:
+        c.execute('select * from '+subdict[sub]+' where uid='+str(i)+';')
+        ql.append(c.fetchall()[0])
+    con.close()
+    return render_template('/questions.html',loggedin=isLoggedIn,user=username,ql=ql,noq=int(noq))
+
+
+@app.route('/submitTest',methods=['POST'])
+def submitTest():
+    answers=[]
+    global ql
+    global username
+    sc=0
+    nsc=0
+    for i in range(len(ql)):
+        try:
+            answers.append(request.form['q'+str(i)])
+            if answers[-1]==ql[i][5].lower():
+                sc+=1
+            else:
+                nsc+=1
+        except:
+            answers.append('0')
+    if username!='Guest':
+        global usergmail
+        con=sqlite3.connect('creds.db')
+        c=con.cursor()
+        c.execute('select level,tqs,tqsc from credstable where uname="'+usergmail   +'";')
+        dat=c.fetchall()[0]
+        tqs = dat[1]+sc+nsc
+        tqsc= dat[2]+sc
+        level = tqsc//10
+        c.execute('update credstable set level='+str(level)+', tqs='+str(tqs)+', tqsc='+str(tqsc)+' where uname="'+usergmail+'";')
+        con.commit()
+        con.close()
+    return render_template('/evals.html',loggedin=isLoggedIn,user=username,ql=ql,noq=int(len(ql)),answers=answers, score=str(sc*4)+'/'+str(len(ql)*4))
+
+@app.route('/doneWithTest')
+def doneWithTest():
+    global isSubmitted
+    isSubmitted=True
+    return redirect(url_for('index'))
+
 
 if __name__=="__main__":
     app.run(debug=True)
